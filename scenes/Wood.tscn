@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://ctyexs10vqstq"]
+
+[ext_resource type="Script" uid="uid://dpxtm8m6y6qb6" path="res://scenes/scripts/Wood.gd" id="1_0m61w"]
+[ext_resource type="Texture2D" uid="uid://df0ayq1r4uyry" path="res://assets/kenney_platformerpack/PNG/Tiles/bridgeB.png" id="1_lm0if"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0m61w"]
+size = Vector2(128, 37)
+
+[node name="Wood" type="RigidBody2D" unique_id=1632302944]
+script = ExtResource("1_0m61w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=651555440]
+position = Vector2(0, -44.5)
+shape = SubResource("RectangleShape2D_0m61w")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=482997114]
+texture = ExtResource("1_lm0if")

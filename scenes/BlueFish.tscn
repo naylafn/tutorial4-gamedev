@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://mvp2bnjoa50t"]
+
+[ext_resource type="Texture2D" uid="uid://bivk5n8i3vnqc" path="res://assets/kenney_platformerpack/PNG/Enemies/fishBlue.png" id="2_0fujq"]
+[ext_resource type="Script" uid="uid://rrp14kk7c7gy" path="res://scenes/scripts/LoseArea.gd" id="3_0fujq"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m2t4w"]
+radius = 41.0
+height = 106.0
+
+[node name="BlueFish" type="RigidBody2D" unique_id=1222241784]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=351889632]
+texture = ExtResource("2_0fujq")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=987160637]
+script = ExtResource("3_0fujq")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D" unique_id=140315730]
+position = Vector2(-1, 1)
+shape = SubResource("CapsuleShape2D_m2t4w")
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_Area_Trigger_body_entered"]

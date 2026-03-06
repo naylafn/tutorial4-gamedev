@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://bf3xyhf046nes"]
+
+[ext_resource type="Texture2D" uid="uid://bfpt4n245ef1h" path="res://assets/kenney_platformerpack/PNG/Items/star.png" id="1_70vqf"]
+[ext_resource type="Script" uid="uid://rrp14kk7c7gy" path="res://scenes/scripts/LoseArea.gd" id="3_6lv4g"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q7s46"]
+radius = 33.01515
+
+[node name="Star" type="RigidBody2D" unique_id=732459644]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1146452162]
+texture = ExtResource("1_70vqf")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1925333814]
+script = ExtResource("3_6lv4g")
+sceneName = "Level2"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1721413515]
+shape = SubResource("CircleShape2D_q7s46")
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_Area_Trigger_body_entered"]

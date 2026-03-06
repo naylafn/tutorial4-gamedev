@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://igqdvjngbvu"]
+
+[ext_resource type="Texture2D" uid="uid://5crq6bolbut8" path="res://assets/kenney_platformerpack/PNG/Enemies/mouse.png" id="1_7u86s"]
+[ext_resource type="Script" uid="uid://cq75k3go223x0" path="res://scenes/scripts/Mouse.gd" id="1_pe0tb"]
+[ext_resource type="Script" uid="uid://rrp14kk7c7gy" path="res://scenes/scripts/LoseArea.gd" id="3_wmtmx"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pe0tb"]
+radius = 31.0
+height = 104.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wmtmx"]
+radius = 30.0
+height = 102.0
+
+[node name="Mouse" type="AnimatableBody2D" unique_id=911478258]
+script = ExtResource("1_pe0tb")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=822510191]
+texture = ExtResource("1_7u86s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1542250407]
+position = Vector2(-1, 34)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_pe0tb")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1309176200]
+script = ExtResource("3_wmtmx")
+sceneName = "Level2"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=658342934]
+position = Vector2(-2, 34)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_wmtmx")
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_Area_Trigger_body_entered"]
