@@ -11,9 +11,11 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4.1.1
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with: python-version: "3.12"
       - name: Install dependencies
         run: |
-          pip install setuptools
           pip install gdtoolkit
       - uses: Scony/godot-gdscript-toolkit@4.3.0
         with:
