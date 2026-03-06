@@ -8,8 +8,10 @@ var direction := 1
 
 @onready var sprite = $Sprite2D
 
+
 func _ready():
 	start_x = position.x
+
 
 func _physics_process(delta):
 	position.x += speed * direction * delta
@@ -20,5 +22,3 @@ func _physics_process(delta):
 		direction = 1
 
 	sprite.flip_h = direction > 0
-	
-	
